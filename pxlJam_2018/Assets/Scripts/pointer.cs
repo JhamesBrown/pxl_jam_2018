@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class pointer : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
+    public Vector2 screenPos;
+
+
+    public GameObject particle;
+    void Update()
+    {
+        screenPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        transform.position = new Vector2(screenPos.x, screenPos.y);
+    }
 }
