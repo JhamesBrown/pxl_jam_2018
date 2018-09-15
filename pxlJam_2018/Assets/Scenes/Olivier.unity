@@ -2213,7 +2213,7 @@ MonoBehaviour:
   PanelWinMenu: {fileID: 1886629082}
   PanelLoseMenu: {fileID: 624672534}
   PanelGameMenu: {fileID: 1879215375}
-  PanelCreditsMenu: {fileID: 1879215375}
+  PanelCreditsMenu: {fileID: 2137004195}
 --- !u!1 &512923333
 GameObject:
   m_ObjectHideFlags: 0
