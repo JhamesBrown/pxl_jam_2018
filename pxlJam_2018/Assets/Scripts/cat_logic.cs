@@ -38,7 +38,7 @@ public class cat_logic : MonoBehaviour
         {
             if (isMoving != wasMoving)//...and the cat was not moving before...
             {
-                reachAudioSystemScript.SFXcatLeap();//do audio for Cat_Leap
+             //   reachAudioSystemScript.SFXcatLeap();//do audio for Cat_Leap
             }
         }
         else
