@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class followPointer : MonoBehaviour {
 
-    public float speed = 1.0f;
+    public float speed = 40.0f;
     public Transform visuals;
 
 

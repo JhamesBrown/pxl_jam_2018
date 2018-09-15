@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 61386035750355498}
   - component: {fileID: 114703321674912320}
   m_Layer: 2
-  m_Name: hurter_invisible
+  m_Name: hurter
   m_TagString: Hurter
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

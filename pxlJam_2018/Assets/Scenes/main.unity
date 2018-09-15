@@ -385,11 +385,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4189246811952424, guid: 9197e282e485f564e86c90397a3b0808, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -7.56
+      value: -10.15
       objectReference: {fileID: 0}
     - target: {fileID: 4189246811952424, guid: 9197e282e485f564e86c90397a3b0808, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -2.74
+      value: 1.55
       objectReference: {fileID: 0}
     - target: {fileID: 4189246811952424, guid: 9197e282e485f564e86c90397a3b0808, type: 2}
       propertyPath: m_LocalPosition.z
@@ -463,6 +463,26 @@ Prefab:
     - target: {fileID: 1301604007751214, guid: 9197e282e485f564e86c90397a3b0808, type: 2}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114037310840111514, guid: 9197e282e485f564e86c90397a3b0808,
+        type: 2}
+      propertyPath: attentionDistance
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114037310840111514, guid: 9197e282e485f564e86c90397a3b0808,
+        type: 2}
+      propertyPath: movementTolerance
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 114348304418564404, guid: 9197e282e485f564e86c90397a3b0808,
+        type: 2}
+      propertyPath: speed
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 50014482693807026, guid: 9197e282e485f564e86c90397a3b0808,
+        type: 2}
+      propertyPath: m_LinearDrag
+      value: 0.75
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9197e282e485f564e86c90397a3b0808, type: 2}
