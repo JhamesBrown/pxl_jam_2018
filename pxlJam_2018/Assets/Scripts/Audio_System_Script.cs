@@ -4,20 +4,21 @@ using UnityEngine;
 
 public class Audio_System_Script : MonoBehaviour {
 
-    public GameObject musicSneaky;
-    private AudioSource asMusicSneaky;
+    public GameObject music;
     public GameObject catIdleSFX;
     public GameObject catLeapSFX;
     public GameObject catHurtSFX;
     public GameObject catAlertSFX;
     public GameObject dogAlertSFX;
     public GameObject dogAttackSFX;
+    private AudioSource[] asMusic;
     private AudioSource[] asCatIdle;
     private AudioSource[] asCatLeap;
     private AudioSource[] asCatHurt;
     private AudioSource[] asCatAlert;
     private AudioSource[] asDogAlert;
     private AudioSource[] asDogAttack;
+    private int totalMusic;
     private int totalCatIdle;
     private int totalCatLeap;
     private int totalCatHurt;
@@ -28,7 +29,8 @@ public class Audio_System_Script : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        asMusicSneaky = musicSneaky.GetComponent<AudioSource>();
+        asMusic = music.GetComponentsInChildren<AudioSource>();
+        totalMusic = asMusic.Length;
         asCatIdle = catIdleSFX.GetComponentsInChildren<AudioSource>();
         totalCatIdle = asCatIdle.Length;
         asCatLeap = catLeapSFX.GetComponentsInChildren<AudioSource>();
@@ -41,6 +43,7 @@ public class Audio_System_Script : MonoBehaviour {
         totalDogAlert = asDogAlert.Length;
         asDogAttack = dogAttackSFX.GetComponentsInChildren<AudioSource>();
         totalDogAttack = asDogAttack.Length;
+        MUSIC(0);//Start with menu music
     }
 	
 	// Update is called once per frame
@@ -48,10 +51,19 @@ public class Audio_System_Script : MonoBehaviour {
 		
 	}
 
-    public void MUSICsneaky()
+    public void MUSIC(int menuMusic)
     {
-        asMusicSneaky.Stop();
-        asMusicSneaky.Play();
+        stopMusic();
+//        int random = Random.Range(0, totalMusic);//remove me after testing
+        asMusic[menuMusic].Play();//needs to know the menu state. music follows same array order.
+    }
+
+    public void stopMusic()//stop tracks so that new music for each menu can play without overlap
+    {
+        foreach (AudioSource audioS in asMusic)
+        {
+            audioS.Stop();
+        }
     }
 
     public void SFXcatIdle()

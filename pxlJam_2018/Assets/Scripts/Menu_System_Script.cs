@@ -12,12 +12,13 @@ public class Menu_System_Script : MonoBehaviour {
     public GameObject PanelLoseMenu;
     public GameObject PanelGameMenu;
     public GameObject PanelCreditsMenu;
+    private Audio_System_Script reachAudioSystemScript;
 
     void Start ()
     {
+        reachAudioSystemScript = Audio_System_Script.FindObjectOfType<Audio_System_Script>();
         menuState = 0;
         menuStateBefore = 100;
-
     }
 
     void Update ()// Update is called once per frame
@@ -30,24 +31,34 @@ public class Menu_System_Script : MonoBehaviour {
         }
     }
 
-    public void PlayGame()//in-game screen
+    public void MenuGame()//main menu screen
     {
-        menuState = 3;
+        menuState = 0;
+        reachAudioSystemScript.MUSIC(menuState);
     }
 
     public void WinGame()//win result screen
     {
         menuState = 1;
+        reachAudioSystemScript.MUSIC(menuState);
     }
 
     public void LoseGame()//lose result screen
     {
         menuState = 2;
+        reachAudioSystemScript.MUSIC(menuState);
     }
 
     public void QuitToCredits()//open credits screen on way out
     {
         menuState = 4;
+        reachAudioSystemScript.MUSIC(menuState);
+    }
+
+    public void PlayGame()//in-game screen
+    {
+        menuState = 3;
+        reachAudioSystemScript.MUSIC(menuState);
     }
 
     public void QuitGame()//quit game
