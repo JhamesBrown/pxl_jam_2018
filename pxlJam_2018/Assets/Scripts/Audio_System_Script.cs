@@ -4,31 +4,39 @@ using UnityEngine;
 
 public class Audio_System_Script : MonoBehaviour {
 
-    public GameObject musicSneaky;
-    private AudioSource asMusicSneaky;
+    public GameObject music;
     public GameObject catIdleSFX;
     public GameObject catLeapSFX;
     public GameObject catHurtSFX;
     public GameObject catAlertSFX;
+    public GameObject catSleepSFX;
     public GameObject dogAlertSFX;
     public GameObject dogAttackSFX;
+    private AudioSource[] asMusic;
     private AudioSource[] asCatIdle;
     private AudioSource[] asCatLeap;
     private AudioSource[] asCatHurt;
     private AudioSource[] asCatAlert;
+    private AudioSource[] asCatSleep;
     private AudioSource[] asDogAlert;
     private AudioSource[] asDogAttack;
+    private int totalMusic;
     private int totalCatIdle;
     private int totalCatLeap;
     private int totalCatHurt;
     private int totalCatAlert;
+    private int totalCatSleep;
     private int totalDogAlert;
     private int totalDogAttack;
 
+    private AudioClip[] acCatLeap;
+    public GameObject all;
+    private AudioSource[] asAll;
 
     // Use this for initialization
     void Start () {
-        asMusicSneaky = musicSneaky.GetComponent<AudioSource>();
+        asMusic = music.GetComponentsInChildren<AudioSource>();
+        totalMusic = asMusic.Length;
         asCatIdle = catIdleSFX.GetComponentsInChildren<AudioSource>();
         totalCatIdle = asCatIdle.Length;
         asCatLeap = catLeapSFX.GetComponentsInChildren<AudioSource>();
@@ -37,10 +45,15 @@ public class Audio_System_Script : MonoBehaviour {
         totalCatHurt = asCatHurt.Length;
         asCatAlert = catAlertSFX.GetComponentsInChildren<AudioSource>();
         totalCatAlert = asCatAlert.Length;
+        asCatSleep = catSleepSFX.GetComponentsInChildren<AudioSource>();
+        totalCatSleep = asCatSleep.Length;
         asDogAlert = dogAlertSFX.GetComponentsInChildren<AudioSource>();
         totalDogAlert = asDogAlert.Length;
         asDogAttack = dogAttackSFX.GetComponentsInChildren<AudioSource>();
         totalDogAttack = asDogAttack.Length;
+
+        asAll = all.GetComponentsInChildren<AudioSource>();
+        MUSIC(0);//Start with menu music
     }
 	
 	// Update is called once per frame
@@ -48,10 +61,27 @@ public class Audio_System_Script : MonoBehaviour {
 		
 	}
 
-    public void MUSICsneaky()
+    public void MUSIC(int menuMusic)
     {
-        asMusicSneaky.Stop();
-        asMusicSneaky.Play();
+        stopMusic();
+//        int random = Random.Range(0, totalMusic);//remove me after testing
+        asMusic[menuMusic].Play();//needs to know the menu state. music follows same array order.
+    }
+
+    public void stopMusic()//stop tracks so that new music for each menu can play without overlap
+    {
+        foreach (AudioSource audioS in asMusic)
+        {
+            audioS.Stop();
+        }
+    }
+
+    public void stopAll()//stop tracks so that new music for each menu can play without overlap
+    {
+        foreach (AudioSource audioS in asAll)
+        {
+            audioS.Stop();
+        }
     }
 
     public void SFXcatIdle()
@@ -62,8 +92,42 @@ public class Audio_System_Script : MonoBehaviour {
 
     public void SFXcatLeap()
     {
-        int random = Random.Range(0, totalCatLeap);
+        StopSFXcatLeap();
+        int random = Random.Range(0, totalCatLeap);//pick a random audio source in the the array of cat leap SFX
+        float currentSFXLength = asCatLeap[random].clip.length;//find out how long the SFX plays for
         asCatLeap[random].Play();
+
+    }
+
+    IEnumerator playSFXcatLeapSequentially()
+    {
+        yield return null;
+
+        //1.Loop through each AudioClip
+        for (int i = 0; i < asCatLeap.Length; i++)
+        {
+            //2.Assign current AudioClip to audiosource
+            acCatLeap.clip = acCatLeap[i];
+
+            //3.asCatLeap Audio
+            acCatLeap.Play();
+
+            //4.Wait for it to finish playing
+            while (asCatLeap.isPlaying)
+            {
+                yield return null;
+            }
+
+            //5. Go back to #2 and play the next audio in the adClips array
+        }
+    }
+
+    public void StopSFXcatLeap()
+    {
+        foreach (AudioSource audioS in asCatLeap)
+        {
+            audioS.Stop();
+        }
     }
 
     public void SFXcatHurt()
@@ -76,6 +140,12 @@ public class Audio_System_Script : MonoBehaviour {
     {
         int random = Random.Range(0, totalCatAlert);
         asCatAlert[random].Play();
+    }
+
+    public void SFXcatSleep()
+    {
+        int random = Random.Range(0, totalCatSleep);
+        asCatSleep[random].Play();
     }
 
     public void SFXdogAlert()
