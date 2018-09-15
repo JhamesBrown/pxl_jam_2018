@@ -20,7 +20,6 @@ public class Audio_System_Script : MonoBehaviour {
     private AudioSource[] asCatSleep;
     private AudioSource[] asDogAlert;
     private AudioSource[] asDogAttack;
-    private int totalMusic;
     private int totalCatIdle;
     private int totalCatLeap;
     private int totalCatHurt;
@@ -29,14 +28,12 @@ public class Audio_System_Script : MonoBehaviour {
     private int totalDogAlert;
     private int totalDogAttack;
 
-    private AudioClip[] acCatLeap;
     public GameObject all;
     private AudioSource[] asAll;
 
     // Use this for initialization
     void Start () {
         asMusic = music.GetComponentsInChildren<AudioSource>();
-        totalMusic = asMusic.Length;
         asCatIdle = catIdleSFX.GetComponentsInChildren<AudioSource>();
         totalCatIdle = asCatIdle.Length;
         asCatLeap = catLeapSFX.GetComponentsInChildren<AudioSource>();
@@ -99,28 +96,28 @@ public class Audio_System_Script : MonoBehaviour {
 
     }
 
-    IEnumerator playSFXcatLeapSequentially()
-    {
-        yield return null;
+    //IEnumerator playSFXcatLeapSequentially()
+    //{
+    //    yield return null;
 
-        //1.Loop through each AudioClip
-        for (int i = 0; i < asCatLeap.Length; i++)
-        {
-            //2.Assign current AudioClip to audiosource
-            acCatLeap.clip = acCatLeap[i];
+    //    //1.Loop through each AudioClip
+    //    for (int i = 0; i < asCatLeap[].Length; i++)
+    //    {
+    //        //2.Assign current AudioClip to audiosource
+    //        asCatLeap[].clip = asCatLeap[i];
 
-            //3.asCatLeap Audio
-            acCatLeap.Play();
+    //        //3.asCatLeap Audio
+    //        acCatLeap[].Play();
 
-            //4.Wait for it to finish playing
-            while (asCatLeap.isPlaying)
-            {
-                yield return null;
-            }
+    //        //4.Wait for it to finish playing
+    //        while (asCatLeap.isPlaying)
+    //        {
+    //            yield return null;
+    //        }
 
-            //5. Go back to #2 and play the next audio in the adClips array
-        }
-    }
+    //        //5. Go back to #2 and play the next audio in the adClips array
+    //    }
+    //}
 
     public void StopSFXcatLeap()
     {
