@@ -4,17 +4,18 @@ using UnityEngine;
 
 public class followPointer : MonoBehaviour {
 
-
-    public Transform target;
     public float speed = 1.0f;
     public Transform visuals;
 
+
+    private Transform target;
     private Rigidbody2D rb;
 
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        target = gameObject.GetComponent<cat_logic>().pointer;
     }
 
     void Update()
