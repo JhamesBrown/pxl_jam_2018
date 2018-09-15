@@ -11,26 +11,41 @@ public class cat_logic : MonoBehaviour
     public float attentionDistance = 3;
 
     public bool isMoving;
+    private bool wasMoving;
     public float movementTolerance = 0.01f;
     private Vector2 prevFramePos;
-
 
     private states m_previousState;
 
     private followPointer m_followPoint;
-	
-	void Start()
+    private stageManager reachStageManager;
+    private Audio_System_Script reachAudioSystemScript;
+
+    void Start()
     {
         currentState = states.idle;
         m_followPoint = GetComponent<followPointer>();
+        reachStageManager = stageManager.FindObjectOfType<stageManager>();
+        reachAudioSystemScript = Audio_System_Script.FindObjectOfType<Audio_System_Script>();
 
     }
-	
-	
-	void FixedUpdate()
+
+
+    void FixedUpdate()
     {
         isMoving = isCatMoving();
-
+        if (isMoving)//If the cat is moving...
+        {
+            if (isMoving != wasMoving)//...and the cat was not moving before...
+            {
+                reachAudioSystemScript.SFXcatLeap();//do audio for Cat_Leap
+            }
+        }
+        else
+        {
+            //reachAudioSystemScript.SFXcatIdle();//when do we play cat idle sounds?
+        }
+        wasMoving = isMoving;
 
         RaycastHit2D hit = Physics2D.Raycast(transform.position, pointer.position - transform.position, Vector2.Distance(transform.position, pointer.transform.position));
         if (Vector2.Distance(transform.position, pointer.transform.position) < attentionDistance && hit.collider == null)
@@ -72,16 +87,16 @@ public class cat_logic : MonoBehaviour
 
     void catDeath()
     {
-        Debug.Log("I die");
-
-        // cat just died stuff , HURT and LOSE
+        Debug.Log("I die");// cat just died stuff , HURT and LOSE
+        reachAudioSystemScript.SFXcatHurt();
+        reachStageManager.ChangeMenus(stageManager.currentGameState.Lose);
     }
 
     void catSaved()
     {
-        Debug.Log("I survive");
-
-        // win the level stuff
+        Debug.Log("I survive");// win the level stuff
+        reachAudioSystemScript.SFXcatSleep();
+        reachStageManager.ChangeMenus(stageManager.currentGameState.Win);
     }
 
 

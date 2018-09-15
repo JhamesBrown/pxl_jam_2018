@@ -58,6 +58,7 @@ public class Menu_System_Script : MonoBehaviour {
     public void PlayGame()//in-game screen
     {
         menuState = 3;
+        reachAudioSystemScript.stopAll();
         reachAudioSystemScript.MUSIC(menuState);
     }
 
