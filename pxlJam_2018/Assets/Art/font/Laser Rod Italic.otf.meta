@@ -1,0 +1,24 @@
+fileFormatVersion: 2
+guid: 50353fb518bf1494994c7f174e925821
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Laser Rod
+  fontNames:
+  - Laser Rod
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 0c20ed00084a5e249a4c05c6747c6497, type: 3}
+  - {fileID: 12800000, guid: 43a569cf01fa74a49a92e8d5a866690e, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
