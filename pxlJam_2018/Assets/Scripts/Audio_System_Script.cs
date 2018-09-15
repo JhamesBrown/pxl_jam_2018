@@ -104,22 +104,22 @@ public class Audio_System_Script : MonoBehaviour {
         yield return null;
 
         //1.Loop through each AudioClip
-        for (int i = 0; i < asCatLeap.Length; i++)
-        {
-            //2.Assign current AudioClip to audiosource
-            acCatLeap.clip = acCatLeap[i];
+        //for (int i = 0; i < asCatLeap.Length; i++)
+        //{
+        //    //2.Assign current AudioClip to audiosource
+        //    acCatLeap.clip = acCatLeap[i];
 
-            //3.asCatLeap Audio
-            acCatLeap.Play();
+        //    //3.asCatLeap Audio
+        //    acCatLeap.Play();
 
-            //4.Wait for it to finish playing
-            while (asCatLeap.isPlaying)
-            {
-                yield return null;
-            }
+        //    //4.Wait for it to finish playing
+        //    while (asCatLeap.isPlaying)
+        //    {
+        //        yield return null;
+        //    }
 
-            //5. Go back to #2 and play the next audio in the adClips array
-        }
+        //    //5. Go back to #2 and play the next audio in the adClips array
+        //}
     }
 
     public void StopSFXcatLeap()
