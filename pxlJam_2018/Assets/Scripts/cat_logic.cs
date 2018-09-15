@@ -8,7 +8,11 @@ public class cat_logic : MonoBehaviour
     public enum states { idle, following, dead };
     public states currentState;
     public Transform pointer;
-    public float attentionDistance = 5;
+    public float attentionDistance = 3;
+
+    public bool isMoving;
+    public float movementTolerance = 0.01f;
+    private Vector2 prevFramePos;
 
 
     private states m_previousState;
@@ -25,6 +29,9 @@ public class cat_logic : MonoBehaviour
 	
 	void FixedUpdate()
     {
+        isMoving = isCatMoving();
+
+
         RaycastHit2D hit = Physics2D.Raycast(transform.position, pointer.position - transform.position, Vector2.Distance(transform.position, pointer.transform.position));
         if (Vector2.Distance(transform.position, pointer.transform.position) < attentionDistance && hit.collider == null)
             currentState = states.following;
@@ -45,7 +52,7 @@ public class cat_logic : MonoBehaviour
                 Debug.Log(_s);
                 break;
             case 1:
-                m_followPoint.enabled = true;
+                catFollow();
                 break;
             default:
                 Debug.Log(_s);
@@ -54,16 +61,39 @@ public class cat_logic : MonoBehaviour
         m_previousState = currentState;
     }
 
+    void catFollow()
+    {
+        m_followPoint.enabled = true;
+
+        // cat is following , 
+    }
+
+
 
     void catDeath()
     {
         Debug.Log("I die");
+
+        // cat just died stuff , HURT and LOSE
     }
 
     void catSaved()
     {
         Debug.Log("I survive");
+
+        // win the level stuff
     }
+
+
+
+    bool isCatMoving()
+    {
+        bool _isMoving = (Vector2.Distance(prevFramePos, (Vector2)transform.position) > movementTolerance);
+        prevFramePos = transform.position;
+        return _isMoving;
+    }
+
+
 
     private void OnCollisionEnter2D(Collision2D col)
     {
@@ -78,4 +108,6 @@ public class cat_logic : MonoBehaviour
         else if (col.tag == "Hurter")
             catDeath();
     }
+
+
 }
