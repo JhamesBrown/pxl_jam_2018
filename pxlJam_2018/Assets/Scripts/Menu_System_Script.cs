@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Menu_System_Script : MonoBehaviour {
+public class Menu_System_Script : MonoBehaviour
+{
 
     public int menuState;
     public int menuStateBefore;
@@ -14,14 +15,33 @@ public class Menu_System_Script : MonoBehaviour {
     public GameObject PanelCreditsMenu;
     private Audio_System_Script reachAudioSystemScript;
 
-    void Start ()
+
+
+    static Menu_System_Script instance;
+
+    void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this; // In first scene, make us the singleton.
+            DontDestroyOnLoad(gameObject);
+        }
+        else if (instance != this)
+            Destroy(gameObject); // On reload, singleton already set, so destroy duplicate.
+    }
+
+
+
+
+
+    void Start()
     {
         reachAudioSystemScript = Audio_System_Script.FindObjectOfType<Audio_System_Script>();
         menuState = 0;
         menuStateBefore = 100;
     }
 
-    void Update ()// Update is called once per frame
+    void Update()// Update is called once per frame
     {
 
         if (menuState != menuStateBefore)//If the menu state changed, activate the appropriate menus
