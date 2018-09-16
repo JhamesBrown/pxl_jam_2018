@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4243421329279756}
   - component: {fileID: 212061769954874304}
-  m_Layer: 2
+  m_Layer: 9
   m_Name: proto_128x128_white
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37,13 +37,13 @@ GameObject:
   - component: {fileID: 4346860109827282}
   - component: {fileID: 120745382292613320}
   - component: {fileID: 114085307292498304}
-  m_Layer: 2
+  m_Layer: 9
   m_Name: AttentionCalloutController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1514544536267928
 GameObject:
   m_ObjectHideFlags: 0
@@ -52,7 +52,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4552109549896444}
-  m_Layer: 2
+  m_Layer: 9
   m_Name: visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -68,7 +68,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4701426159838972}
   - component: {fileID: 212623004760710496}
-  m_Layer: 2
+  m_Layer: 9
   m_Name: cat_head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -88,7 +88,7 @@ GameObject:
   - component: {fileID: 50014482693807026}
   - component: {fileID: 114037310840111514}
   - component: {fileID: 114348304418564404}
-  m_Layer: 2
+  m_Layer: 9
   m_Name: Cat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -105,7 +105,7 @@ GameObject:
   - component: {fileID: 4653832650748160}
   - component: {fileID: 212960335479055578}
   - component: {fileID: 95331176905766190}
-  m_Layer: 2
+  m_Layer: 9
   m_Name: Cat_walk1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -119,7 +119,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1810167227996490}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.56, y: -2.74, z: 0}
+  m_LocalPosition: {x: -10.15, y: 1.55, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4552109549896444}
@@ -207,7 +207,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 5
-  m_LinearDrag: 1
+  m_LinearDrag: 0.75
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -271,7 +271,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentState: 0
   pointer: {fileID: 0}
-  attentionDistance: 5
+  attentionDistance: 3
+  isMoving: 0
+  movementTolerance: 0.01
 --- !u!114 &114085307292498304
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -283,6 +285,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 170feb6b9aa594441854b315748f0b5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  target: {fileID: 0}
 --- !u!114 &114348304418564404
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -294,7 +297,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 766cd96bee7646c46978510981fab548, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 40
   visuals: {fileID: 4552109549896444}
 --- !u!120 &120745382292613320
 LineRenderer:
@@ -341,8 +344,8 @@ LineRenderer:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0
-        value: 1
+        time: 0.0564003
+        value: 0.038095474
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -356,15 +359,15 @@ LineRenderer:
       serializedVersion: 2
       key0: {r: 1, g: 1, b: 1, a: 1}
       key1: {r: 1, g: 1, b: 1, a: 1}
-      key2: {r: 0, g: 0, b: 0, a: 0}
+      key2: {r: 1, g: 1, b: 1, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
       key5: {r: 0, g: 0, b: 0, a: 0}
       key6: {r: 0, g: 0, b: 0, a: 0}
       key7: {r: 0, g: 0, b: 0, a: 0}
       ctime0: 0
-      ctime1: 65535
-      ctime2: 0
+      ctime1: 27756
+      ctime2: 65535
       ctime3: 0
       ctime4: 0
       ctime5: 0
@@ -379,7 +382,7 @@ LineRenderer:
       atime6: 0
       atime7: 0
       m_Mode: 0
-      m_NumColorKeys: 2
+      m_NumColorKeys: 3
       m_NumAlphaKeys: 2
     numCornerVertices: 0
     numCapVertices: 0
