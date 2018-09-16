@@ -19,7 +19,8 @@ public class stageManager : MonoBehaviour {
     {
         if (Input.GetKeyDown(KeyCode.R))
         {
-            Scene scene = SceneManager.GetActiveScene(); SceneManager.LoadScene(scene.name);
+            Scene scene = SceneManager.GetActiveScene();
+            SceneManager.LoadScene(scene.name);
         }
     }
 
