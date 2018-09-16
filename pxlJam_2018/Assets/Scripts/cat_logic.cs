@@ -20,6 +20,7 @@ public class cat_logic : MonoBehaviour
     private followPointer m_followPoint;
     private stageManager reachStageManager;
     private Audio_System_Script reachAudioSystemScript;
+    int layerMask;
 
     void Start()
     {
@@ -28,6 +29,7 @@ public class cat_logic : MonoBehaviour
         reachStageManager = stageManager.FindObjectOfType<stageManager>();
         reachAudioSystemScript = Audio_System_Script.FindObjectOfType<Audio_System_Script>();
 
+        layerMask = 0 << 9;
     }
 
 
@@ -47,11 +49,15 @@ public class cat_logic : MonoBehaviour
         }
         wasMoving = isMoving;
 
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, pointer.position - transform.position, Vector2.Distance(transform.position, pointer.transform.position));
+
+        
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, pointer.position - transform.position, Vector2.Distance(transform.position, pointer.transform.position), layerMask);
         if (Vector2.Distance(transform.position, pointer.transform.position) < attentionDistance && hit.collider == null)
             currentState = states.following;
         else
             currentState = states.idle;
+           
+           
 
 
         if (currentState != m_previousState)

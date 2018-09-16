@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4945011197409422}
   - component: {fileID: 212668473562876232}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Dog_body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 50839440359776576}
   - component: {fileID: 61326865855829270}
   - component: {fileID: 114586142289933358}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Dog
   m_TagString: Hurter
   m_Icon: {fileID: 0}
@@ -54,7 +54,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4988494481632684}
   - component: {fileID: 212081770072993030}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: proto_128x128_white
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -70,7 +70,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4346008926724234}
   - component: {fileID: 212870795026852402}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Dog_lookingaround
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -193,6 +193,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 6adae8056f3a89c41aa0c0e2c9536a3c, type: 3}
   - {fileID: 21300000, guid: fc82e49388996a14e9cf6db54f1cd8ba, type: 3}
   spriteRender: {fileID: 212870795026852402}
+  detectDistance: 48.3
 --- !u!212 &212081770072993030
 SpriteRenderer:
   m_ObjectHideFlags: 1

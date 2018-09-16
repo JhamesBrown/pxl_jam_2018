@@ -6,10 +6,12 @@ public class dog_logic : MonoBehaviour
 {
 
     public float directionHoldTime = 1.0f;
-    public Sprite[] sprites = new Sprite[2];
+    public Sprite[] sprites = new Sprite[3];
     public SpriteRenderer spriteRender;
+    public SpriteRenderer dogBodySprite;
     public float detectDistance = 2.0f;
     private Vector2 direction;
+    
 
     enum idlestates
     {
@@ -21,7 +23,7 @@ public class dog_logic : MonoBehaviour
 
 	void Start ()
     {
-
+       // dogBodySprite = gameObject.GetComponentInChildren<SpriteRenderer>();
 	}
 	
 	void Update ()
@@ -62,7 +64,15 @@ public class dog_logic : MonoBehaviour
     {
         bool _isCatThere = false;
         RaycastHit2D hit = Physics2D.Raycast(transform.position, _direction);
-        _isCatThere = (hit.collider.gameObject.tag == "Cat")? true: false;
+        if (hit.collider != null)
+            _isCatThere = (hit.collider.gameObject.tag == "Cat")? true: false;
+
+        // Debug.Log("running");
+        if (hit)
+        {
+            //Debug.Log(hit.collider.name);
+        }
+
         return _isCatThere;
     }
 
@@ -71,4 +81,11 @@ public class dog_logic : MonoBehaviour
         int _n = Mathf.FloorToInt(Time.time / directionHoldTime) % 3;
         return _n;
     }
+
+
+    void dogLeap()
+    {
+
+    }
 }
+
