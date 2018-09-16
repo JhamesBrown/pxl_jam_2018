@@ -16,6 +16,7 @@ public class dog_logic : MonoBehaviour
     private Rigidbody2D rb;
     private Vector2 direction;
     private SpriteRenderer dogBodySprite;
+    private Audio_System_Script reachAudioSystemScript;
 
     enum idlestates
     {
@@ -29,7 +30,8 @@ public class dog_logic : MonoBehaviour
     {
        dogBodySprite = dogBody.GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
-	}
+        reachAudioSystemScript = Audio_System_Script.FindObjectOfType<Audio_System_Script>();
+    }
 	
 	void Update ()
     {
@@ -87,6 +89,8 @@ public class dog_logic : MonoBehaviour
         dogBodySprite.sprite = sprites[2];
         rb.AddRelativeForce(_direction * leapForce);
         dogBody.transform.eulerAngles = new Vector3(0.0f,0.0f,90.0f);
+        reachAudioSystemScript.SFXdogAttack();
     }
+
 }
 
