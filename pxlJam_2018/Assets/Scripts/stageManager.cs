@@ -24,12 +24,14 @@ public class stageManager : MonoBehaviour {
             Scene scene = SceneManager.GetActiveScene();
             SceneManager.LoadScene(scene.name);
         }
+
+        catCanMove = (reachMenuSystemScript.menuState == 3) ? true : false;
     }
 
     public void ChangeMenus(currentGameState menuNow)
     {
 
-        catCanMove = (reachMenuSystemScript.menuState != 3)? false : true;
+        
 
         
 

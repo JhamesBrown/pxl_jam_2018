@@ -52,7 +52,7 @@ public class cat_logic : MonoBehaviour
 
         if (reachStageManager.catCanMove)
         {
-
+            Debug.Log("can MOve");
         
             RaycastHit2D hit = Physics2D.Raycast(transform.position, pointer.position - transform.position, Vector2.Distance(transform.position, pointer.transform.position), layerMask);
             if (Vector2.Distance(transform.position, pointer.transform.position) < attentionDistance && hit.collider == null)
