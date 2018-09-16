@@ -11,6 +11,8 @@ public class followPointer : MonoBehaviour {
     private Transform target;
     private Rigidbody2D rb;
 
+    private Audio_System_Script reachAudioSystemScript;
+
 
     void Start()
     {
@@ -32,4 +34,11 @@ public class followPointer : MonoBehaviour {
             visuals.localScale *= new Vector2(visuals.localScale.x * -direction, 1.0f);
         return v2.normalized;
     }
+
+    public void OnEnable()
+    {
+        reachAudioSystemScript = Audio_System_Script.FindObjectOfType<Audio_System_Script>();
+        reachAudioSystemScript.SFXcatAlert();
+    }
 }
+

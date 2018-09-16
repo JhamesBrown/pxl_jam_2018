@@ -9,9 +9,9 @@ public class cat_logic : MonoBehaviour
     public states currentState;
     public Transform pointer;
     public float attentionDistance = 3;
-
+    private int framesNotMoving;
+    public int framesCatIdle = 200;
     public bool isMoving;
-    private bool wasMoving;
     public float movementTolerance = 0.01f;
     private Vector2 prevFramePos;
 
@@ -28,7 +28,6 @@ public class cat_logic : MonoBehaviour
         m_followPoint = GetComponent<followPointer>();
         reachStageManager = stageManager.FindObjectOfType<stageManager>();
         reachAudioSystemScript = Audio_System_Script.FindObjectOfType<Audio_System_Script>();
-
         layerMask = 0 << 9;
     }
 
@@ -36,21 +35,20 @@ public class cat_logic : MonoBehaviour
     void FixedUpdate()
     {
         isMoving = isCatMoving();
-        if (isMoving)//If the cat is moving...
-        {
-            if (isMoving != wasMoving)//...and the cat was not moving before...
-            {
-             //   reachAudioSystemScript.SFXcatLeap();//do audio for Cat_Leap
-            }
-        }
-        else
-        {
-            //reachAudioSystemScript.SFXcatIdle();//when do we play cat idle sounds?
-        }
-        wasMoving = isMoving;
 
+        if (isMoving)
+        {
+            framesNotMoving = 0;
+        }
+        else {
+            framesNotMoving++;
+        }
 
-        
+        if (framesNotMoving >= framesCatIdle)
+        {
+            catDidNotMove();
+        }
+
         RaycastHit2D hit = Physics2D.Raycast(transform.position, pointer.position - transform.position, Vector2.Distance(transform.position, pointer.transform.position), layerMask);
         if (Vector2.Distance(transform.position, pointer.transform.position) < attentionDistance && hit.collider == null)
             currentState = states.following;
@@ -62,6 +60,11 @@ public class cat_logic : MonoBehaviour
 
         if (currentState != m_previousState)
             setNewState(currentState);
+
+        if (framesNotMoving > framesCatIdle)
+        {
+            reachAudioSystemScript.SFXcatIdle();
+        }
     }
 
     void setNewState(states _s)
@@ -118,7 +121,11 @@ public class cat_logic : MonoBehaviour
         return _isMoving;
     }
 
-
+    void catDidNotMove()
+    {
+            reachAudioSystemScript.SFXcatIdle();
+        framesNotMoving = 0;
+        }
 
     private void OnCollisionEnter2D(Collision2D col)
     {

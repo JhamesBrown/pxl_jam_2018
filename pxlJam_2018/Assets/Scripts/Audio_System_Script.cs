@@ -112,29 +112,6 @@ public class Audio_System_Script : MonoBehaviour {
 
     }
 
-    //IEnumerator playSFXcatLeapSequentially()
-    //{
-    //    yield return null;
-
-    //    //1.Loop through each AudioClip
-    //    for (int i = 0; i < asCatLeap[].Length; i++)
-    //    {
-    //        //2.Assign current AudioClip to audiosource
-    //        asCatLeap[].clip = asCatLeap[i];
-
-    //        //3.asCatLeap Audio
-    //        acCatLeap[].Play();
-
-    //        //4.Wait for it to finish playing
-    //        while (asCatLeap.isPlaying)
-    //        {
-    //            yield return null;
-    //        }
-
-    //        //5. Go back to #2 and play the next audio in the adClips array
-    //    }
-    //}
-
     public void StopSFXcatLeap()
     {
         foreach (AudioSource audioS in asCatLeap)
@@ -149,7 +126,7 @@ public class Audio_System_Script : MonoBehaviour {
         asCatHurt[random].Play();
     }
 
-    public void SFXcatAlert()//when cat !=isMoving || pointer in range
+    public void SFXcatAlert()
     {
         int random = Random.Range(0, totalCatAlert);
         asCatAlert[random].Play();
