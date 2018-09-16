@@ -41,12 +41,14 @@ public class Menu_System_Script : MonoBehaviour {
     {
         menuState = 1;
         reachAudioSystemScript.MUSIC(menuState);
+        reachAudioSystemScript.SFXcatSleep();
     }
 
     public void LoseGame()//lose result screen
     {
         menuState = 2;
         reachAudioSystemScript.MUSIC(menuState);
+        reachAudioSystemScript.SFXcatSleep();
     }
 
     public void QuitToCredits()//open credits screen on way out

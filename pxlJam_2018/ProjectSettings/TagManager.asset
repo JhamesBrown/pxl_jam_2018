@@ -40,6 +40,24 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Ground
+    uniqueID: 712379497
+    locked: 0
+  - name: Walls
+    uniqueID: 2833076097
+    locked: 0
+  - name: Bridges
+    uniqueID: 840442019
+    locked: 0
+  - name: Solids
+    uniqueID: 523240471
+    locked: 0
+  - name: Dogs
+    uniqueID: 796302607
+    locked: 0
+  - name: Cats
+    uniqueID: 771064601
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0

@@ -81,7 +81,7 @@ public class Audio_System_Script : MonoBehaviour {
         }
     }
 
-    public void SFXcatIdle()
+    public void SFXcatIdle()//need a delay mechanism
     {
         int random = Random.Range(0, totalCatIdle);
         asCatIdle[random].Play();
@@ -133,7 +133,7 @@ public class Audio_System_Script : MonoBehaviour {
         asCatHurt[random].Play();
     }
 
-    public void SFXcatAlert()
+    public void SFXcatAlert()//when cat !=isMoving || pointer in range
     {
         int random = Random.Range(0, totalCatAlert);
         asCatAlert[random].Play();
