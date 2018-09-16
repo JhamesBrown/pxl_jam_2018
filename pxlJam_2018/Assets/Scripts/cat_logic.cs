@@ -101,11 +101,15 @@ public class cat_logic : MonoBehaviour
         reachStageManager.ChangeMenus(stageManager.currentGameState.Lose);
     }
 
-    void catSaved()
+    void catSaved(stage_goal _goal)
     {
+        /*
         Debug.Log("I survive");// win the level stuff
         reachAudioSystemScript.SFXcatSleep();
         reachStageManager.ChangeMenus(stageManager.currentGameState.Win);
+        */
+
+        _goal.CheckIfLast();
     }
 
 
@@ -132,7 +136,7 @@ public class cat_logic : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.GetComponent<stage_goal>() != null)
-            catSaved();
+            catSaved(col.gameObject.GetComponent<stage_goal>());
         else if (col.tag == "Hurter")
             catDeath();
     }
