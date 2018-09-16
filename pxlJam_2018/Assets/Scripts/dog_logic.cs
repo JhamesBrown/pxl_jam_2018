@@ -59,7 +59,6 @@ public class dog_logic : MonoBehaviour
 
         if (isCatInDirectionCheck(direction))
         {
-            Debug.Log("got ya!");
             dogLeap(direction);
         }
         
@@ -72,13 +71,6 @@ public class dog_logic : MonoBehaviour
         RaycastHit2D hit = Physics2D.Raycast(transform.position, _direction);
         if (hit.collider != null)
             _isCatThere = (hit.collider.gameObject.tag == "Cat")? true: false;
-
-        // Debug.Log("running");
-        if (hit)
-        {
-            //Debug.Log(hit.collider.name);
-        }
-
         return _isCatThere;
     }
 

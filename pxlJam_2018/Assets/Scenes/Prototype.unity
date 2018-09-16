@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311992, g: 0.38074034, b: 0.35872713, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311947, g: 0.38074005, b: 0.35872722, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1328,14 +1328,6 @@ Prefab:
     - target: {fileID: 4990614390603178, guid: b1db22f88f42bed449290e56f0dc48f9, type: 2}
       propertyPath: m_RootOrder
       value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4988494481632684, guid: b1db22f88f42bed449290e56f0dc48f9, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4988494481632684, guid: b1db22f88f42bed449290e56f0dc48f9, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b1db22f88f42bed449290e56f0dc48f9, type: 2}
@@ -5804,70 +5796,6 @@ Prefab:
       propertyPath: pointer
       value: 
       objectReference: {fileID: 1826707483}
-    - target: {fileID: 120745382292613320, guid: 9197e282e485f564e86c90397a3b0808,
-        type: 2}
-      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].value
-      value: 0.038095474
-      objectReference: {fileID: 0}
-    - target: {fileID: 120745382292613320, guid: 9197e282e485f564e86c90397a3b0808,
-        type: 2}
-      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].time
-      value: 0.0564003
-      objectReference: {fileID: 0}
-    - target: {fileID: 120745382292613320, guid: 9197e282e485f564e86c90397a3b0808,
-        type: 2}
-      propertyPath: m_Parameters.colorGradient.key2.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 120745382292613320, guid: 9197e282e485f564e86c90397a3b0808,
-        type: 2}
-      propertyPath: m_Parameters.colorGradient.key2.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 120745382292613320, guid: 9197e282e485f564e86c90397a3b0808,
-        type: 2}
-      propertyPath: m_Parameters.colorGradient.key2.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 120745382292613320, guid: 9197e282e485f564e86c90397a3b0808,
-        type: 2}
-      propertyPath: m_Parameters.colorGradient.ctime1
-      value: 27756
-      objectReference: {fileID: 0}
-    - target: {fileID: 120745382292613320, guid: 9197e282e485f564e86c90397a3b0808,
-        type: 2}
-      propertyPath: m_Parameters.colorGradient.ctime2
-      value: 65535
-      objectReference: {fileID: 0}
-    - target: {fileID: 120745382292613320, guid: 9197e282e485f564e86c90397a3b0808,
-        type: 2}
-      propertyPath: m_Parameters.colorGradient.m_NumColorKeys
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1301604007751214, guid: 9197e282e485f564e86c90397a3b0808, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114037310840111514, guid: 9197e282e485f564e86c90397a3b0808,
-        type: 2}
-      propertyPath: attentionDistance
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 114037310840111514, guid: 9197e282e485f564e86c90397a3b0808,
-        type: 2}
-      propertyPath: movementTolerance
-      value: 0.01
-      objectReference: {fileID: 0}
-    - target: {fileID: 114348304418564404, guid: 9197e282e485f564e86c90397a3b0808,
-        type: 2}
-      propertyPath: speed
-      value: 40
-      objectReference: {fileID: 0}
-    - target: {fileID: 50014482693807026, guid: 9197e282e485f564e86c90397a3b0808,
-        type: 2}
-      propertyPath: m_LinearDrag
-      value: 0.75
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9197e282e485f564e86c90397a3b0808, type: 2}
   m_IsPrefabAsset: 0
