@@ -49,13 +49,19 @@ public class cat_logic : MonoBehaviour
             catDidNotMove();
         }
 
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, pointer.position - transform.position, Vector2.Distance(transform.position, pointer.transform.position), layerMask);
-        if (Vector2.Distance(transform.position, pointer.transform.position) < attentionDistance && hit.collider == null)
-            currentState = states.following;
-        else
-            currentState = states.idle;
-           
-           
+
+        if (reachStageManager.catCanMove)
+        {
+
+        
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, pointer.position - transform.position, Vector2.Distance(transform.position, pointer.transform.position), layerMask);
+            if (Vector2.Distance(transform.position, pointer.transform.position) < attentionDistance && hit.collider == null)
+                currentState = states.following;
+            else
+                currentState = states.idle;
+
+        }
+
 
 
         if (currentState != m_previousState)

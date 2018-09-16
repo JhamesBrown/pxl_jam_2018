@@ -9,6 +9,8 @@ public class stageManager : MonoBehaviour {
     public enum currentGameState { Main, Win, Lose, Game, Credits};
     private Menu_System_Script reachMenuSystemScript;
 
+    public bool catCanMove;
+
 	void Start ()
     {
         reachMenuSystemScript = Menu_System_Script.FindObjectOfType<Menu_System_Script>();
@@ -26,7 +28,12 @@ public class stageManager : MonoBehaviour {
 
     public void ChangeMenus(currentGameState menuNow)
     {
-        Cursor.visible = (menuNow != currentGameState.Game)?true:false;
+
+        catCanMove = (reachMenuSystemScript.menuState != 3)? false : true;
+
+        
+
+
         if (menuNow == currentGameState.Main)
         {
             reachMenuSystemScript.MenuGame();//menuState = 0

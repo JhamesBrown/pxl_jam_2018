@@ -49,6 +49,11 @@ public class Menu_System_Script : MonoBehaviour
             MenuPanelController();//turn panels on/off correctly
             menuStateBefore = menuState;
         }
+
+
+        Cursor.visible = (menuState != 3) ? true : false;
+
+
     }
 
     public void MenuGame()//main menu screen
