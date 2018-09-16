@@ -8,10 +8,14 @@ public class dog_logic : MonoBehaviour
     public float directionHoldTime = 1.0f;
     public Sprite[] sprites = new Sprite[3];
     public SpriteRenderer spriteRender;
-    public SpriteRenderer dogBodySprite;
-    public float detectDistance = 2.0f;
-    private Vector2 direction;
+    public GameObject dogBody;
+    public float leapForce = 100.0f;
     
+    public float detectDistance = 2.0f;
+
+    private Rigidbody2D rb;
+    private Vector2 direction;
+    private SpriteRenderer dogBodySprite;
 
     enum idlestates
     {
@@ -23,7 +27,8 @@ public class dog_logic : MonoBehaviour
 
 	void Start ()
     {
-       // dogBodySprite = gameObject.GetComponentInChildren<SpriteRenderer>();
+       dogBodySprite = dogBody.GetComponent<SpriteRenderer>();
+        rb = GetComponent<Rigidbody2D>();
 	}
 	
 	void Update ()
@@ -55,6 +60,7 @@ public class dog_logic : MonoBehaviour
         if (isCatInDirectionCheck(direction))
         {
             Debug.Log("got ya!");
+            dogLeap(direction);
         }
         
 
@@ -83,9 +89,12 @@ public class dog_logic : MonoBehaviour
     }
 
 
-    void dogLeap()
+    void dogLeap(Vector2 _direction)
     {
 
+        dogBodySprite.sprite = sprites[2];
+        rb.AddRelativeForce(_direction * leapForce);
+        dogBody.transform.eulerAngles = new Vector3(0.0f,0.0f,90.0f);
     }
 }
 

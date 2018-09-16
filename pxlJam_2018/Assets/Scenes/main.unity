@@ -156,6 +156,11 @@ Prefab:
       propertyPath: m_Name
       value: static_wood_box (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 212765494561241272, guid: 35ec6f5a8a7da3140a7b863fea52868b,
+        type: 2}
+      propertyPath: m_SortingOrder
+      value: 62
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 35ec6f5a8a7da3140a7b863fea52868b, type: 2}
   m_IsPrefabAsset: 0
@@ -201,14 +206,6 @@ Prefab:
     - target: {fileID: 1580086584414496, guid: acd6ea4b459e27b4cba14740aaea478b, type: 2}
       propertyPath: m_Name
       value: leftbot_wall_block
-      objectReference: {fileID: 0}
-    - target: {fileID: 4517844530482050, guid: acd6ea4b459e27b4cba14740aaea478b, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 3.725
-      objectReference: {fileID: 0}
-    - target: {fileID: 1046500702466162, guid: acd6ea4b459e27b4cba14740aaea478b, type: 2}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: acd6ea4b459e27b4cba14740aaea478b, type: 2}
@@ -510,6 +507,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 1384811528}
     m_Modifications:
+    - target: {fileID: 114586142289933358, guid: b1db22f88f42bed449290e56f0dc48f9,
+        type: 2}
+      propertyPath: sprites.Array.size
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4990614390603178, guid: b1db22f88f42bed449290e56f0dc48f9, type: 2}
       propertyPath: m_LocalPosition.x
       value: 3.59
@@ -542,6 +544,42 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 114586142289933358, guid: b1db22f88f42bed449290e56f0dc48f9,
+        type: 2}
+      propertyPath: sprites.Array.data[2]
+      value: 
+      objectReference: {fileID: 21300000, guid: 15559f0ac890e3e47a2079de3c3f6e2a,
+        type: 3}
+    - target: {fileID: 114586142289933358, guid: b1db22f88f42bed449290e56f0dc48f9,
+        type: 2}
+      propertyPath: dogBodySprite
+      value: 
+      objectReference: {fileID: 1656865985}
+    - target: {fileID: 4945011197409422, guid: b1db22f88f42bed449290e56f0dc48f9, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4945011197409422, guid: b1db22f88f42bed449290e56f0dc48f9, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4945011197409422, guid: b1db22f88f42bed449290e56f0dc48f9, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4945011197409422, guid: b1db22f88f42bed449290e56f0dc48f9, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4945011197409422, guid: b1db22f88f42bed449290e56f0dc48f9, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114586142289933358, guid: b1db22f88f42bed449290e56f0dc48f9,
+        type: 2}
+      propertyPath: dogBody
+      value: 
+      objectReference: {fileID: 1656865983}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b1db22f88f42bed449290e56f0dc48f9, type: 2}
   m_IsPrefabAsset: 0
@@ -1392,8 +1430,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 712379497
+  m_SortingLayer: -6
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 1e55111abd5a6e248aadccb279a28961, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1445,10 +1483,9 @@ Prefab:
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
-    - target: {fileID: 212765494561241272, guid: 35ec6f5a8a7da3140a7b863fea52868b,
-        type: 2}
-      propertyPath: m_SortingOrder
-      value: -1
+    - target: {fileID: 4314705122001228, guid: 35ec6f5a8a7da3140a7b863fea52868b, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 3.06
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 35ec6f5a8a7da3140a7b863fea52868b, type: 2}
@@ -1823,6 +1860,16 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1656865983 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1557728795617154, guid: b1db22f88f42bed449290e56f0dc48f9,
+    type: 2}
+  m_PrefabInternal: {fileID: 191099434}
+--- !u!212 &1656865985 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 212668473562876232, guid: b1db22f88f42bed449290e56f0dc48f9,
+    type: 2}
+  m_PrefabInternal: {fileID: 191099434}
 --- !u!1 &1717146816
 GameObject:
   m_ObjectHideFlags: 0
@@ -2188,8 +2235,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 712379497
+  m_SortingLayer: -6
   m_SortingOrder: -10
   m_Sprite: {fileID: 21300000, guid: 95d6e5d3ffd625547bc830adef40ceaa, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
