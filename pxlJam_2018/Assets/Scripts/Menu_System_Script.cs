@@ -80,8 +80,12 @@ public class Menu_System_Script : MonoBehaviour
     public void PlayGame()//in-game screen
     {
         menuState = 3;
+        Scene scene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(scene.name);
+        Debug.Log("working");
         reachAudioSystemScript.stopAll();
         reachAudioSystemScript.MUSIC(menuState);
+        
     }
 
     public void QuitGame()//quit game

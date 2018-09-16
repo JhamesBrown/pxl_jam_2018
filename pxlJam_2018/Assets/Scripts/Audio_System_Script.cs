@@ -31,6 +31,22 @@ public class Audio_System_Script : MonoBehaviour {
     public GameObject all;
     private AudioSource[] asAll;
 
+
+    static Audio_System_Script instance;
+
+    void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this; // In first scene, make us the singleton.
+            DontDestroyOnLoad(gameObject);
+        }
+        else if (instance != this)
+            Destroy(gameObject); // On reload, singleton already set, so destroy duplicate.
+    }
+
+
+
     // Use this for initialization
     void Start () {
         asMusic = music.GetComponentsInChildren<AudioSource>();
