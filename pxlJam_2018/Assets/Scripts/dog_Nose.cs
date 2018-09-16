@@ -20,7 +20,16 @@ public class dog_Nose : MonoBehaviour {
     {
         if (col.gameObject.tag == "Cat")
         {
-            reachAudioSystemScript.SFXdogAlert();
+            int random = Random.Range(0, 2);
+            if (random == 0)
+            {
+                reachAudioSystemScript.SFXdogAlert();
+            }
+            else
+            {
+                reachAudioSystemScript.SFXcatLeap();
+            }
+
         }
     }
 }
